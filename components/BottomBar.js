@@ -54,7 +54,7 @@ function BottomBar() {
               alignSelf: "center",
               paddingLeft: 2.3,
             }}
-            color={route.name == "TransXact" ? "#fc2154" : "#C0C0C0"}
+            color={route.name == "TransXact" ? "#fc2154" : "#fff"}
           />
           {/* <Text style={styles.iconTitle}>TransXact</Text> */}
         </TouchableOpacity>

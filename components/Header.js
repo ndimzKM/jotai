@@ -30,4 +30,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  logo: {
+    fontSize: 28,
+  },
 });
