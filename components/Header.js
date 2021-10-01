@@ -20,7 +20,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
-    marginHorizontal: 14,
+    paddingHorizontal: 14,
+    borderBottomColor: "#eee",
+    borderBottomWidth: 1,
+    marginBottom: 5,
   },
   avatar: {
     width: 40,

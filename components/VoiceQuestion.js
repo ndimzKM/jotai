@@ -1,8 +1,17 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
+import Slider from "@react-native-community/slider";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function Post({
+const { width } = Dimensions.get("screen");
+
+export default function VoiceQuestion({
   name,
   handle,
   question,
@@ -22,9 +31,16 @@ export default function Post({
           <Text style={styles.handle}>{handle}</Text>
         </View>
         <View style={styles.details}>
-          <Text style={styles.question}>
-            {question} <Text style={styles.category}>- {category}</Text>
-          </Text>
+          <View style={styles.question}>
+            <Ionicons name="play-circle" color="#fc2154" size={45} />
+            <Slider
+              style={{ width: width - 50 - 100, height: 10 }}
+              minimumValue={0}
+              maximumValue={1}
+              minimumTrackTintColor="#fc2154"
+              maximumTrackTintColor="#fc2154"
+            />
+          </View>
 
           <View style={styles.actions}>
             <TouchableOpacity style={styles.play}>
@@ -70,6 +86,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
   },
+  side: {
+    width: width - 50,
+  },
   top: {
     alignItems: "center",
     flexDirection: "row",
@@ -100,6 +119,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 25,
     marginBottom: 10,
+    flexDirection: "row",
+    alignItems: "center",
   },
   actions: {
     flexDirection: "row",

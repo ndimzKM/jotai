@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import BottomBar from "../components/BottomBar";
 import Header from "../components/Header";
 import Post from "../components/Post";
+import VoiceQuestion from "../components/VoiceQuestion";
 
 export default function Home() {
   const navigation = useNavigation();
@@ -14,8 +15,38 @@ export default function Home() {
       <View>
         <Header />
         <View style={styles.container}>
-          <Text>Recommended For You</Text>
-          <Post />
+          <Post
+            name="UX Design"
+            handle="@uxdesign"
+            question="Who gave you the single best advice in your career?"
+            likes={900}
+            time="5:00"
+            listens="2.1k"
+            answerer="Saul Sawaneh"
+            job="Design at Y Combinator"
+            category="Web Development"
+          />
+          <Post
+            name="Mark Noble"
+            handle="@noble"
+            question="How did you identify a great startup to join at an early stage?"
+            likes={121}
+            time="2:12"
+            listens="1.21k"
+            answerer="Omar Jeng"
+            job="Engineer at Facebook"
+            category="Startups"
+          />
+          <VoiceQuestion
+            name="Mark Noble"
+            handle="@noble"
+            likes={121}
+            time="2:12"
+            listens="1.21k"
+            answerer="Omar Jeng"
+            job="Engineer at Facebook"
+            category="Startups"
+          />
         </View>
       </View>
       <BottomBar />
