@@ -1,6 +1,8 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import profile from "../assets/generated_photos_5e6888fa6d3b380006f220e5.jpg";
+import female_profile from "../assets/female.jpg";
 
 export default function Post({
   name,
@@ -12,10 +14,16 @@ export default function Post({
   answerer,
   job,
   category,
+  gender,
 }) {
   return (
     <View style={styles.post}>
-      <View style={styles.avatar}></View>
+      <View style={styles.avatar}>
+        <Image
+          source={gender == "male" ? profile : female_profile}
+          style={styles.profile_pic}
+        />
+      </View>
       <View style={styles.side}>
         <View style={styles.top}>
           <Text style={styles.name}>{name}</Text>
@@ -31,7 +39,12 @@ export default function Post({
               <Ionicons name="play-circle" size={35} color="#fc2154" />
             </TouchableOpacity>
             <View style={styles.profile}>
-              <View style={styles.profile_avatar}></View>
+              <View style={styles.profile_avatar}>
+                <Image
+                  source={gender == "male" ? female_profile : profile}
+                  style={styles.profile_pic}
+                />
+              </View>
               <View style={styles.profile_details}>
                 <Text style={styles.name}>{answerer}</Text>
                 <Text style={styles.title}>{job}</Text>
@@ -86,6 +99,11 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     backgroundColor: "#dcdcdc",
   },
+  profile_pic: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 25,
+  },
   details: {
     marginTop: 10,
     padding: 10,
@@ -97,8 +115,8 @@ const styles = StyleSheet.create({
     color: "#C0C0C0",
   },
   question: {
-    fontSize: 20,
-    lineHeight: 25,
+    fontSize: 18,
+    lineHeight: 22,
     marginBottom: 10,
   },
   actions: {

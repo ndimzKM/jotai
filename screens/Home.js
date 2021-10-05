@@ -25,6 +25,7 @@ export default function Home() {
             answerer="Saul Sawaneh"
             job="Design at Y Combinator"
             category="Web Development"
+            gender="male"
           />
           <Post
             name="Mark Noble"
@@ -36,8 +37,9 @@ export default function Home() {
             answerer="Omar Jeng"
             job="Engineer at Facebook"
             category="Startups"
+            gender="female"
           />
-          <VoiceQuestion
+          {/* <VoiceQuestion
             name="Mark Noble"
             handle="@noble"
             likes={121}
@@ -46,7 +48,7 @@ export default function Home() {
             answerer="Omar Jeng"
             job="Engineer at Facebook"
             category="Startups"
-          />
+          /> */}
         </View>
       </View>
       <BottomBar />

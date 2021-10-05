@@ -5,11 +5,16 @@ import { Ionicons } from "@expo/vector-icons";
 export default function Header() {
   return (
     <View style={styles.container}>
-      <View style={styles.avatar}>
-        <Text>AN</Text>
+      <Ionicons name="person-circle" size={30} color="#cfcdca" />
+      <View style={styles.logo_container}>
+        <Ionicons
+          style={styles.logo}
+          name="logo-ionitron"
+          size={40}
+          color="#fc2154"
+        />
       </View>
-      <Text style={styles.logo}>Jotai</Text>
-      <Ionicons name="notifications" size={24} color="#000" />
+      <Ionicons name="notifications" size={30} color="#cfcdca" />
     </View>
   );
 }
@@ -34,6 +39,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   logo: {
-    fontSize: 28,
+    fontSize: 50,
   },
 });

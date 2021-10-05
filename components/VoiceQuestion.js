@@ -5,10 +5,12 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
+  Image,
 } from "react-native";
 import Slider from "@react-native-community/slider";
 import { Ionicons } from "@expo/vector-icons";
 
+import profile from "../assets/generated_photos_5e6888fa6d3b380006f220e5.jpg";
 const { width } = Dimensions.get("screen");
 
 export default function VoiceQuestion({
@@ -24,7 +26,9 @@ export default function VoiceQuestion({
 }) {
   return (
     <View style={styles.post}>
-      <View style={styles.avatar}></View>
+      <View style={styles.avatar}>
+        <Image source={profile} style={styles.profile_pic} />
+      </View>
       <View style={styles.side}>
         <View style={styles.top}>
           <Text style={styles.name}>{name}</Text>
@@ -104,6 +108,11 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 25,
     backgroundColor: "#dcdcdc",
+  },
+  profile_pic: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 25,
   },
   details: {
     marginTop: 10,
