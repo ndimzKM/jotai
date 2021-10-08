@@ -7,13 +7,15 @@ import BottomBar from "../components/BottomBar";
 import Header from "../components/Header";
 import Post from "../components/Post";
 import VoiceQuestion from "../components/VoiceQuestion";
+import Head from "../components/Head";
 
 export default function Home() {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.droidSafe}>
       <View>
-        <Header />
+        {/* <Header /> */}
+        <Head />
         <View style={styles.container}>
           <Post
             name="UX Design"
@@ -64,6 +66,7 @@ const styles = StyleSheet.create({
   droidSafe: {
     flex: 1,
     paddingBottom: Platform.OS === "android" ? 25 : 0,
+    paddingTop: Platform.OS === "android" ? 15 : 0,
     justifyContent: "space-between",
     backgroundColor: "#fff",
   },

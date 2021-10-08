@@ -2,13 +2,13 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
   SafeAreaView,
-  Platform,
+  Text,
   StyleSheet,
   View,
   TouchableOpacity,
   Dimensions,
 } from "react-native";
-import { Ionicons, Octicons } from "@expo/vector-icons";
+import { Ionicons, AntDesign } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
 
 function BottomBar() {
@@ -23,62 +23,37 @@ function BottomBar() {
           style={styles.icon}
           onPress={() => navigation.navigate("Dashboard")}
         >
-          <Ionicons
-            name="compass"
-            size={32}
-            color={route.name == "Home" ? "#fc2154" : "#C0C0C0"}
-          />
+          <AntDesign name="find" size={32} color="#C0C0C0" />
           {/* <Text style={styles.iconTitle}>Dashboard</Text> */}
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.icon}
-          onPress={() => navigation.navigate("Banks")}
-        >
-          <Ionicons
-            name="search"
-            size={28}
-            color={route.name == "Banks" ? "#fc2154" : "#C0C0C0"}
-          />
-          {/* <Text style={styles.iconTitle}>Banks</Text> */}
-        </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.iconMain}
           onPress={() => navigation.navigate("TransXact")}
         >
           <Ionicons
             name="mic"
-            size={28}
+            size={35}
             style={{
               justifyContent: "center",
               alignItems: "center",
               alignSelf: "center",
               paddingLeft: 2.3,
             }}
-            color={route.name == "TransXact" ? "#fc2154" : "#fff"}
+            color="#fff"
           />
-          {/* <Text style={styles.iconTitle}>TransXact</Text> */}
+          {/* <Text style={styles.iconTitle}>ask</Text> */}
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.icon}
           onPress={() => navigation.navigate("Cards")}
         >
-          <Ionicons
-            name="bookmarks"
+          <AntDesign
+            name="hearto"
             size={28}
             color={route.name == "Cards" ? "#fc2154" : "#C0C0C0"}
           />
           {/* <Text style={styles.iconTitle}>Cards</Text> */}
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.icon}
-          onPress={() => navigation.navigate("Settings")}
-        >
-          <Ionicons
-            name="people"
-            size={32}
-            color={route.name == "Settings" ? "#fc2154" : "#C0C0C0"}
-          />
-          {/* <Text style={styles.iconTitle}>Settings</Text> */}
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -132,7 +107,11 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 25,
-    textAlign: "center",
+  },
+  iconTitle: {
+    fontSize: 28,
+    color: "#fff",
+    fontWeight: "bold",
   },
 });
 
