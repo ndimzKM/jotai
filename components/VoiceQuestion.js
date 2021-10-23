@@ -36,9 +36,11 @@ export default function VoiceQuestion({
         </View>
         <View style={styles.details}>
           <View style={styles.question}>
-            <Ionicons name="play-circle" color="#fc2154" size={45} />
+            <View style={{ width: "15%" }}>
+              <Ionicons name="play-circle" color="#fc2154" size={45} />
+            </View>
             <Slider
-              style={{ width: width - 50 - 100, height: 10 }}
+              style={{ width: "100%", height: 10 }}
               minimumValue={0}
               maximumValue={1}
               minimumTrackTintColor="#fc2154"

@@ -1,6 +1,13 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { View, Text, SafeAreaView, StyleSheet, Platform } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  Platform,
+  ScrollView,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import BottomBar from "../components/BottomBar";
@@ -16,42 +23,56 @@ export default function Home() {
       <View>
         {/* <Header /> */}
         <Head />
-        <View style={styles.container}>
-          <Post
-            name="UX Design"
-            handle="@uxdesign"
-            question="Who gave you the single best advice in your career?"
-            likes={900}
-            time="5:00"
-            listens="2.1k"
-            answerer="Saul Sawaneh"
-            job="Design at Y Combinator"
-            category="Web Development"
-            gender="male"
-          />
-          <Post
-            name="Mark Noble"
-            handle="@noble"
-            question="How did you identify a great startup to join at an early stage?"
-            likes={121}
-            time="2:12"
-            listens="1.21k"
-            answerer="Omar Jeng"
-            job="Engineer at Facebook"
-            category="Startups"
-            gender="female"
-          />
-          {/* <VoiceQuestion
-            name="Mark Noble"
-            handle="@noble"
-            likes={121}
-            time="2:12"
-            listens="1.21k"
-            answerer="Omar Jeng"
-            job="Engineer at Facebook"
-            category="Startups"
-          /> */}
-        </View>
+        <ScrollView>
+          <View style={styles.container}>
+            <Post
+              name="UX Design"
+              handle="@uxdesign"
+              question="Who gave you the single best advice in your career?"
+              likes={900}
+              time="5:00"
+              listens="2.1k"
+              answerer="Saul Sawaneh"
+              job="Design at Y Combinator"
+              category="Web Development"
+              gender="male"
+            />
+            <Post
+              name="Mark Noble"
+              handle="@noble"
+              question="How did you identify a great startup to join at an early stage?"
+              likes={121}
+              time="2:12"
+              listens="1.21k"
+              answerer="Omar Jeng"
+              job="Engineer at Facebook"
+              category="Startups"
+              gender="female"
+            />
+            <Post
+              name="Mark Noble"
+              handle="@noble"
+              question="How did you identify a great startup to join at an early stage?How did you identify a great startup to join at an early stage?"
+              likes={121}
+              time="2:12"
+              listens="1.21k"
+              answerer="Omar Jeng"
+              job="Engineer at Facebook"
+              category="Startups"
+              gender="female"
+            />
+            <VoiceQuestion
+              name="Mark Noble"
+              handle="@noble"
+              likes={121}
+              time="2:12"
+              listens="1.21k"
+              answerer="Omar Jeng"
+              job="Engineer at Facebook"
+              category="Startups"
+            />
+          </View>
+        </ScrollView>
       </View>
       <BottomBar />
       <StatusBar style="auto" />
@@ -62,6 +83,7 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     marginHorizontal: 14,
+    marginBottom: 50,
   },
   droidSafe: {
     flex: 1,
