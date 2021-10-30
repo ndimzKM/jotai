@@ -1,8 +1,11 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
 
 export default function Head() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -16,7 +19,10 @@ export default function Head() {
           <AntDesign name="bells" size={25} color="#333" style={styles.bell} />
           <Ionicons style={styles.dot} name="ellipse" size={10} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => navigation.navigate("Profile")}
+        >
           <AntDesign name="user" size={25} color="#333" />
         </TouchableOpacity>
       </View>

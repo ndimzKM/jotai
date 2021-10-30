@@ -2,16 +2,15 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import {
   View,
-  Text,
   SafeAreaView,
   StyleSheet,
   Platform,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
+import { AntDesign } from "@expo/vector-icons";
 import BottomBar from "../components/BottomBar";
-import Header from "../components/Header";
 import Post from "../components/Post";
 import VoiceQuestion from "../components/VoiceQuestion";
 import Head from "../components/Head";
@@ -63,6 +62,7 @@ export default function Home() {
             />
             <VoiceQuestion
               name="Mark Noble"
+              question="How did you identify a great startup to join at an early stage?"
               handle="@noble"
               likes={121}
               time="2:12"
@@ -73,6 +73,9 @@ export default function Home() {
             />
           </View>
         </ScrollView>
+        <TouchableOpacity style={styles.floatingBtn}>
+          <AntDesign name="notification" size={30} color="#fff" />
+        </TouchableOpacity>
       </View>
       <BottomBar />
       <StatusBar style="auto" />
@@ -91,5 +94,18 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? 15 : 0,
     justifyContent: "space-between",
     backgroundColor: "#fff",
+    position: "relative",
+  },
+  floatingBtn: {
+    width: 65,
+    height: 65,
+    borderRadius: 45,
+    backgroundColor: "#fc2154",
+    position: "absolute",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    bottom: 70,
+    right: 20,
   },
 });

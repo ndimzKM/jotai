@@ -4,15 +4,15 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
   Image,
+  Dimensions,
 } from "react-native";
-import Slider from "@react-native-community/slider";
 import { Ionicons } from "@expo/vector-icons";
-
+import Slider from "@react-native-community/slider";
 import profile from "../assets/generated_photos_5e6888fa6d3b380006f220e5.jpg";
-const { width } = Dimensions.get("screen");
+import female_profile from "../assets/female.jpg";
 
+const { width } = Dimensions.get("window");
 export default function VoiceQuestion({
   name,
   handle,
@@ -23,11 +23,15 @@ export default function VoiceQuestion({
   answerer,
   job,
   category,
+  gender,
 }) {
   return (
     <View style={styles.post}>
       <View style={styles.avatar}>
-        <Image source={profile} style={styles.profile_pic} />
+        <Image
+          source={gender == "male" ? profile : female_profile}
+          style={styles.profile_pic}
+        />
       </View>
       <View style={styles.side}>
         <View style={styles.top}>
@@ -36,7 +40,7 @@ export default function VoiceQuestion({
         </View>
         <View style={styles.details}>
           <View style={styles.question}>
-            <View style={{ width: "15%" }}>
+            <View style={{ width: "15%", marginRight: 10 }}>
               <Ionicons name="play-circle" color="#fc2154" size={45} />
             </View>
             <Slider
@@ -53,7 +57,12 @@ export default function VoiceQuestion({
               <Ionicons name="play-circle" size={35} color="#fc2154" />
             </TouchableOpacity>
             <View style={styles.profile}>
-              <View style={styles.profile_avatar}></View>
+              <View style={styles.profile_avatar}>
+                <Image
+                  source={gender == "male" ? female_profile : profile}
+                  style={styles.profile_pic}
+                />
+              </View>
               <View style={styles.profile_details}>
                 <Text style={styles.name}>{answerer}</Text>
                 <Text style={styles.title}>{job}</Text>
@@ -92,13 +101,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
   },
-  side: {
-    width: width - 50,
-  },
   top: {
     alignItems: "center",
     flexDirection: "row",
     paddingLeft: 10,
+  },
+
+  side: {
+    width: width - 50,
   },
 
   handle: {
@@ -121,22 +131,25 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingTop: 0,
     marginRight: 40,
+    // backgroundColor: "red",
   },
   category: {
     fontSize: 14,
     color: "#C0C0C0",
   },
   question: {
-    fontSize: 20,
-    lineHeight: 25,
+    fontSize: 18,
+    lineHeight: 22,
     marginBottom: 10,
     flexDirection: "row",
     alignItems: "center",
+    width: width - 154,
   },
   actions: {
     flexDirection: "row",
     alignItems: "center",
-    marginVertical: 5,
+    marginVertical: 1,
+    // paddingLeft: 5,
   },
   play: {
     marginRight: 5,

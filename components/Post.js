@@ -1,9 +1,16 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  Dimensions,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import profile from "../assets/generated_photos_5e6888fa6d3b380006f220e5.jpg";
 import female_profile from "../assets/female.jpg";
-
+const { width } = Dimensions.get("screen");
 export default function Post({
   name,
   handle,
@@ -83,6 +90,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#eee",
   },
+  side: {
+    width: width - 50,
+  },
   top: {
     alignItems: "center",
     flexDirection: "row",
@@ -92,6 +102,10 @@ const styles = StyleSheet.create({
   handle: {
     paddingLeft: 5,
     color: "#C0C0C0",
+  },
+  name: {
+    fontSize: 14,
+    fontWeight: "500",
   },
   avatar: {
     width: 50,
@@ -109,14 +123,15 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingTop: 0,
     marginRight: 40,
+    // backgroundColor: "red",
   },
   category: {
     fontSize: 14,
     color: "#C0C0C0",
   },
   question: {
-    fontSize: 18,
-    lineHeight: 22,
+    fontSize: 16,
+    lineHeight: 20,
     marginBottom: 10,
   },
   actions: {
