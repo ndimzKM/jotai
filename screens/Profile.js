@@ -10,18 +10,23 @@ import {
 import { AntDesign } from "@expo/vector-icons";
 import Detail from "../components/Detail";
 import Post from "../components/Post";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Profile() {
+  const navigation = useNavigation();
   const [show, setShow] = useState("answers");
   return (
     <SafeAreaView style={styles.droidSafe}>
       <View style={styles.container}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={{ flexDirection: "row", alignItems: "center" }}
+        >
           <AntDesign name="arrowleft" size={28} color="#333" />
           <Text style={{ paddingLeft: 15, fontSize: 20 }}>
             Alieu Ndimbalane
           </Text>
-        </View>
+        </TouchableOpacity>
         <ScrollView>
           <View style={styles.background}>
             <View
@@ -47,47 +52,7 @@ export default function Profile() {
               <AntDesign name="camerao" size={30} color="#eee" />
             </View>
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginTop: 20,
-            }}
-          >
-            <TouchableOpacity
-              style={{
-                padding: 10,
-                paddingVertical: 20,
-                backgroundColor: "blue",
-                width: "48%",
-                borderRadius: 5,
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <AntDesign name="pluscircle" size={20} color="#fff" />
-              <Text style={{ color: "#fff", paddingLeft: 10, fontSize: 18 }}>
-                Add to Story
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                padding: 10,
-                paddingVertical: 20,
-                backgroundColor: "#333",
-                width: "48%",
-                borderRadius: 5,
-                flexDirection: "row",
-                alignItems: "center",
-              }}
-            >
-              <AntDesign name="edit" size={20} color="#fff" />
-              <Text style={{ color: "#fff", paddingLeft: 10, fontSize: 18 }}>
-                Edit Profile
-              </Text>
-            </TouchableOpacity>
-          </View>
+
           <View style={styles.details}>
             <Detail
               text="Validate email addresses, phone numbers, VAT numbers and domain names."
@@ -100,18 +65,27 @@ export default function Profile() {
           <View style={styles.main}>
             <View style={styles.top}>
               <TouchableOpacity
-                style={styles.btn}
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderBottomColor: "#fc2154",
+                  borderBottomWidth: 3,
+                  marginRight: 25,
+                  borderBottomColor: show == "answers" ? "#fc2154" : "#fff",
+                }}
                 onPress={() => setShow("answers")}
               >
                 <Text style={styles.btnText}>Answers</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={
-                  (styles.btn,
-                  {
-                    borderBottomColor: show == "questions" ? "#fc2154" : "#fff",
-                  })
-                }
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderBottomColor: "#fc2154",
+                  borderBottomWidth: 3,
+                  marginRight: 25,
+                  borderBottomColor: show == "questions" ? "#fc2154" : "#fff",
+                }}
                 onPress={() => setShow("questions")}
               >
                 <Text style={styles.btnText}>Questions</Text>
@@ -191,9 +165,10 @@ const styles = StyleSheet.create({
     position: "relative",
     alignItems: "center",
     height: 200,
+    marginTop: 10,
   },
   details: {
-    marginTop: 30,
+    marginTop: 20,
   },
   main: {
     marginTop: 10,

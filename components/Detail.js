@@ -5,7 +5,7 @@ import { AntDesign } from "@expo/vector-icons";
 export default function Detail({ text, icon }) {
   return (
     <View style={styles.detail}>
-      <View style={{ width: "10%" }}>
+      <View style={{ width: "7%" }}>
         <AntDesign name={icon} size={25} color="#333" />
       </View>
       <View style={styles.detailTextContainer}>
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   detailTextContainer: {
     paddingLeft: 20,
-    width: "90%",
+    width: "93%",
   },
   detailText: {
     fontSize: 18,
